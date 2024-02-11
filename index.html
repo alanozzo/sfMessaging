@@ -38,7 +38,7 @@
                 );
                
                 window.addEventListener("onEmbeddedMessagingReady", function (e) {
-                  embeddedservice_bootstrap.utilAPI.launchChat();
+                  embeddedservice_bootstrap.bootstrapEmbeddedMessaging();
                 });
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
