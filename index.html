@@ -39,6 +39,12 @@
                
                 window.addEventListener("onEmbeddedMessagingReady", function (e) {
                   embeddedservice_bootstrap.bootstrapEmbeddedMessaging();
+                  embeddedservice_bootstrap.prechatAPI.setVisiblePreChatFields({
+                    "_FirstName" : {
+                      "value" : "Alan",
+                      "isEditableByEndUser" : false
+                    }
+                  });
                 });
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
