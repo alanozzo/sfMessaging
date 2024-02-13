@@ -36,7 +36,8 @@
                         scrt2URL: 'https://1800accountant.my.salesforce-scrt.com'
                     }
                 );
-                setTimeout(() => {
+               
+                window.addEventListener("onEmbeddedMessagingReady", function (e) {
                   embeddedservice_bootstrap.bootstrapEmbeddedMessaging();
                   embeddedservice_bootstrap.prechatAPI.setVisiblePreChatFields({
                     "_FirstName" : {
@@ -44,11 +45,6 @@
                       "isEditableByEndUser" : false
                     }
                   });
-            }, 5000)
-               
-                window.addEventListener("onEmbeddedMessagingReady", function (e) {
-                  //embeddedservice_bootstrap.bootstrapEmbeddedMessaging();
-                
                 });
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
