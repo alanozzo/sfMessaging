@@ -36,15 +36,19 @@
                         scrt2URL: 'https://1800accountant.my.salesforce-scrt.com'
                     }
                 );
-               
-                window.addEventListener("onEmbeddedMessagingReady", function (e) {
-                  //embeddedservice_bootstrap.bootstrapEmbeddedMessaging();
-                embeddedservice_bootstrap.prechatAPI.setVisiblePreChatFields({
+                setTimeout(() => {
+                  embeddedservice_bootstrap.bootstrapEmbeddedMessaging();
+                  embeddedservice_bootstrap.prechatAPI.setVisiblePreChatFields({
                     "_FirstName" : {
                       "value" : "Alan",
                       "isEditableByEndUser" : false
                     }
                   });
+            }, 2000)
+               
+                window.addEventListener("onEmbeddedMessagingReady", function (e) {
+                  //embeddedservice_bootstrap.bootstrapEmbeddedMessaging();
+                
                 });
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
