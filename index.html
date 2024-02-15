@@ -39,6 +39,12 @@
                
                 window.addEventListener("onEmbeddedMessagingReady", function (e) {
                   //embeddedservice_bootstrap.generateMarkup();
+                  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+                    "_firstName": {
+                      "value": "Jane",
+                      "isEditableByEndUser": false
+                    }
+                  });
                   embeddedservice_bootstrap.utilAPI.launchChat()
                   .then(() => {
                       // Success handler used to perform actions
@@ -57,12 +63,7 @@
                       //logEndUserAttemptToChat();
                   });
 
-                  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-                    "_firstName": {
-                      "value": "Jane",
-                      "isEditableByEndUser": false
-                    }
-                  });
+                  
                 });
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
