@@ -36,8 +36,20 @@
                         scrt2URL: 'https://1800accountant.my.salesforce-scrt.com'
                     }
                 );
-                window.addEventListener("onEmbeddedMessagingInitSuccess", function (e) {
-                    embeddedservice_bootstrap.utilAPI.launchChat()
+               
+                
+               
+                window.addEventListener("onEmbeddedMessagingReady", function (e) {
+                  //embeddedservice_bootstrap.generateMarkup();
+                  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+                    "_firstName": {
+                      "value": "Jane",
+                      "isEditableByEndUser": false
+                    }
+                  });
+                  embeddedservice_bootstrap.removeMarkup();
+                  embeddedservice_bootstrap.generateMarkup();
+                  embeddedservice_bootstrap.utilAPI.launchChat()
                     .then(() => {
                         // Success handler used to perform actions
                         // when the chat client launches successfully.
@@ -54,17 +66,6 @@
                         // For example, create a method that logs the user’s attempt to chat.
                         //logEndUserAttemptToChat();
                     });
-                });
-                
-               
-                window.addEventListener("onEmbeddedMessagingReady", function (e) {
-                  //embeddedservice_bootstrap.generateMarkup();
-                  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-                    "_firstName": {
-                      "value": "Jane",
-                      "isEditableByEndUser": false
-                    }
-                  });
                 });
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
