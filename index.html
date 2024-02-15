@@ -37,14 +37,15 @@
                     }
                 );
                
-                window.addEventListener("onEmbeddedMessagingReady", e => {
+                window.addEventListener("onEmbeddedMessagingReady", function (e) {
+                  //embeddedservice_bootstrap.bootstrapEmbeddedMessaging();
                   embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-                    // List the pre-chat field names with the value and whether it's editable
-                    // in the pre-chat form.
-                    "_firstName": {
-                      "value" : "Alan",
-                      "isEditableByEndUser" : false
-                    }  });
+                  // List the pre-chat field names with the value and whether it's editable
+                  // in the pre-chat form.
+                  "_firstName": {
+                    "value": "Jane",
+                    "isEditableByEndUser": false
+                  }  });
                 });
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
