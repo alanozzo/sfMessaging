@@ -40,18 +40,7 @@
                 
                
                 window.addEventListener("onEmbeddedMessagingReady", function (e) {
-                  //embeddedservice_bootstrap.generateMarkup();
-                  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-                    "_firstName": {
-                      "value": "Jane",
-                      "isEditableByEndUser": false
-                    }
-                  });
-                  setTimeout(() => {
-                    embeddedservice_bootstrap.utilAPI.launchChat();     
-                  }, 100)
-                  
-                  //embeddedservice_bootstrap.generateMarkup();
+                  embeddedservice_bootstrap.utilAPI.launchChat();
                 });
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
