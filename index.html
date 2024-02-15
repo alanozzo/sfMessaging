@@ -38,6 +38,7 @@
                 );
                
                 window.addEventListener("onEmbeddedMessagingReady", function (e) {
+                  embeddedservice_bootstrap.generateMarkup();
                   embeddedservice_bootstrap.utilAPI.launchChat()
                   .then(() => {
                       // Success handler used to perform actions
