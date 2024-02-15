@@ -37,10 +37,16 @@
                     }
                 );
                
-                
-               
                 window.addEventListener("onEmbeddedMessagingReady", function (e) {
-                  embeddedservice_bootstrap.utilAPI.launchChat();
+                  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+                    "_firstName": {
+                      "value": "Jane",
+                      "isEditableByEndUser": false
+                    }
+                  });
+                  setTimeout(() => {
+                    embeddedservice_bootstrap.utilAPI.launchChat();     
+                  }, 100)
                 });
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
