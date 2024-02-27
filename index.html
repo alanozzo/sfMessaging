@@ -28,13 +28,7 @@
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-                embedded_svc.settings.prepopulatedPrechatFields = {
-                    FirstName: "John",
-                    LastName: "Doe",
-                    Email: "johndoe@salesforce.com",
-                    Subject: "Hell",
-                    Scheduler_Topic : "scheduler topic test"
-                };
+                
     
                 embeddedservice_bootstrap.init(
                     '00Dj0000000HTLp',
@@ -46,6 +40,14 @@
                 );
                
                 window.addEventListener("onEmbeddedMessagingReady", function (e) {
+
+                  embedded_svc.settings.prepopulatedPrechatFields = {
+                    FirstName: "John",
+                    LastName: "Doe",
+                    Email: "johndoe@salesforce.com",
+                    Subject: "Hell",
+                    Scheduler_Topic : "scheduler topic test"
+                };
                   /*embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
                         "_firstName": {
                           "value": 'alan',
