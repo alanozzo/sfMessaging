@@ -50,21 +50,13 @@
                         "_email": {
                             "value": 'alan.meza@tech9.com',
                             "isEditableByEndUser": true
-                        },
-                        "_subject": {
-                            "value": schedulerTopic,
-                            "isEditableByEndUser": true
-                        },
-                        "Scheduler_Topic": {
-                            "value": schedulerSubTopic,
-                            "isEditableByEndUser": true
                         }
                     });
 
                   // Send data to Salesforce
                   embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
                     "_subject" : "subject test",
-                   
+                    "Scheduler_Topic" : "scheduler topic test"
                   });
                   setTimeout(() => {
                     embeddedservice_bootstrap.utilAPI.launchChat();   
