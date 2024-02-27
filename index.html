@@ -27,17 +27,8 @@
         function initEmbeddedMessaging() {
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-    
-                embeddedservice_bootstrap.init(
-                    '00Dj0000000HTLp',
-                    'Client_Support',
-                    'https://1800accountant.my.site.com/ESWClientSupport1705485976105',
-                    {
-                        scrt2URL: 'https://1800accountant.my.salesforce-scrt.com'
-                    }
-                );
-               
-                addEventListener("onEmbeddedMessagingReady", function (e) {
+
+                window.addEventListener("onEmbeddedMessagingReady", function (e) {
                   embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
                         "_firstName": {
                           "value": 'alan',
@@ -62,6 +53,16 @@
                     embeddedservice_bootstrap.utilAPI.launchChat();   
                   }, 100)
                 });
+                embeddedservice_bootstrap.init(
+                    '00Dj0000000HTLp',
+                    'Client_Support',
+                    'https://1800accountant.my.site.com/ESWClientSupport1705485976105',
+                    {
+                        scrt2URL: 'https://1800accountant.my.salesforce-scrt.com'
+                    }
+                );
+               
+                
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
             }
