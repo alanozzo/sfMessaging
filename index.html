@@ -27,6 +27,14 @@
         function initEmbeddedMessaging() {
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+                embedded_svc.settings.prepopulatedPrechatFields = {
+                    FirstName: "John",
+                    LastName: "Doe",
+                    Email: "johndoe@salesforce.com",
+                    Subject: "Hell",
+                    Scheduler_Topic : "scheduler topic test"
+                };
     
                 embeddedservice_bootstrap.init(
                     '00Dj0000000HTLp',
@@ -38,7 +46,7 @@
                 );
                
                 window.addEventListener("onEmbeddedMessagingReady", function (e) {
-                  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+                  /*embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
                         "_firstName": {
                           "value": 'alan',
                           "isEditableByEndUser": true
@@ -51,13 +59,13 @@
                             "value": 'alan.meza@tech9.com',
                             "isEditableByEndUser": true
                         }
-                    });
+                    });*/
 
                   // Send data to Salesforce
-                  embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                  /*embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
                     "_subject" : "subject test",
                     "Scheduler_Topic" : "scheduler topic test"
-                  });
+                  });*/
                   setTimeout(() => {
                     embeddedservice_bootstrap.utilAPI.launchChat();   
                   }, 100)
