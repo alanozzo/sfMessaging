@@ -37,16 +37,37 @@
                     }
                 );
                
-                window.addEventListener("onEmbeddedMessagingReady", function (e) {
+                addEventListener("onEmbeddedMessagingReady", function (e) {
                   embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-                    "_firstName": {
-                      "value": "Jane",
-                      "isEditableByEndUser": false
-                    }
+                        "_firstName": {
+                          "value": 'alan',
+                          "isEditableByEndUser": true
+                        },
+                        "_lastName": {
+                            "value": 'meza',
+                            "isEditableByEndUser": true
+                        },
+                        "_email": {
+                            "value": 'alan.meza@tech9.com',
+                            "isEditableByEndUser": true
+                        },
+                        "_subject": {
+                            "value": schedulerTopic,
+                            "isEditableByEndUser": true
+                        },
+                        "Scheduler_Topic": {
+                            "value": schedulerSubTopic,
+                            "isEditableByEndUser": true
+                        }
+                    });
+
+                  // Send data to Salesforce
+                  embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                    "_subject" : "subject test",
+                    "Scheduler_Topic" : "scheduler topic test"
                   });
                   setTimeout(() => {
-                    embeddedservice_bootstrap.utilAPI.launchChat();
-                    embeddedservice_bootstrap.utilAPI.hideChatButton();    
+                    embeddedservice_bootstrap.utilAPI.launchChat();   
                   }, 100)
                 });
             } catch (err) {
