@@ -41,14 +41,14 @@
                
                 window.addEventListener("onEmbeddedMessagingReady", function (e) {
 
-                  embedded_svc.settings.prepopulatedPrechatFields = {
+                  /*embedded_svc.settings.prepopulatedPrechatFields = {
                     FirstName: "John",
                     LastName: "Doe",
                     Email: "johndoe@salesforce.com",
                     Subject: "Hell",
                     Scheduler_Topic : "scheduler topic test"
-                };
-                  /*embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+                };*/
+                  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
                         "_firstName": {
                           "value": 'alan',
                           "isEditableByEndUser": true
@@ -60,8 +60,16 @@
                         "_email": {
                             "value": 'alan.meza@tech9.com',
                             "isEditableByEndUser": true
+                        },
+                        "_subject": {
+                            "value": 'subject test',
+                            "isEditableByEndUser": true
+                        },
+                        "Scheduler_Topic": {
+                            "value": 'subtopic test',
+                            "isEditableByEndUser": true
                         }
-                    });*/
+                    });
 
                   // Send data to Salesforce
                   /*embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
