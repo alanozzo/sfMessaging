@@ -29,26 +29,10 @@
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
                 
-    
-                embeddedservice_bootstrap.init(
-                    '00Dj0000000HTLp',
-                    'Client_Support',
-                    'https://1800accountant.my.site.com/ESWClientSupport1705485976105',
-                    {
-                        scrt2URL: 'https://1800accountant.my.salesforce-scrt.com'
-                    }
-                );
-               
-                window.addEventListener("onEmbeddedMessagingReady", function (e) {
-
-                  /*embedded_svc.settings.prepopulatedPrechatFields = {
-                    FirstName: "John",
-                    LastName: "Doe",
-                    Email: "johndoe@salesforce.com",
-                    Subject: "Hell",
-                    Scheduler_Topic : "scheduler topic test"
-                };*/
-                  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+                window.addEventListener("onEmbeddedMessagingReady", () => {            
+                    console.log( "Inside Prechat API!!" );
+                    embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields( {"Scheduler_Topic" : "Test Scheduler_Topic","Subject_Custom" : "Test Subject"});
+                    embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
                         "_firstName": {
                           "value": 'alan',
                           "isEditableByEndUser": true
@@ -60,26 +44,21 @@
                         "_email": {
                             "value": 'alan.meza@tech9.com',
                             "isEditableByEndUser": true
-                        },
-                        "_subject": {
-                            "value": 'subject test',
-                            "isEditableByEndUser": true
-                        },
-                        "Scheduler_Topic": {
-                            "value": 'subtopic test',
-                            "isEditableByEndUser": true
                         }
                     });
-
-                  // Send data to Salesforce
-                  /*embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-                    "_subject" : "subject test",
-                    "Scheduler_Topic" : "scheduler topic test"
-                  });*/
-                  setTimeout(() => {
-                    embeddedservice_bootstrap.utilAPI.launchChat();   
-                  }, 100)
+                    setTimeout(() => {
+                      embeddedservice_bootstrap.utilAPI.launchChat();   
+                    }, 100)
                 });
+                embeddedservice_bootstrap.init(
+                    '00Dj0000000HTLp',
+                    'Client_Support',
+                    'https://1800accountant.my.site.com/ESWClientSupport1705485976105',
+                    {
+                        scrt2URL: 'https://1800accountant.my.salesforce-scrt.com'
+                    }
+                );
+               
             } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
             }
