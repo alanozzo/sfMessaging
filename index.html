@@ -24,48 +24,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
     <script type='text/javascript'>
-        function initEmbeddedMessaging() {
-            try {
-                embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-                //embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields( {"Scheduler_Topic" : "Test Scheduler_Topic","Subject_Custom" : "Test Subject"});
-                
-                
-                
-                window.addEventListener("onEmbeddedMessagingReady", () => {            
-                    console.log( "Inside Prechat API!!" );
-                    embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields( {"Scheduler_Topic" : "Test Scheduler_Topic","Subject_Custom" : "Test Subject"});
-                    embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-                        "_firstName": {
-                          "value": 'alan',
-                          "isEditableByEndUser": true
-                        },
-                        "_lastName": {
-                            "value": 'meza',
-                            "isEditableByEndUser": true
-                        },
-                        "_email": {
-                            "value": 'alan.meza@tech9.com',
-                            "isEditableByEndUser": true
-                        }
-                    });
-                    setTimeout(() => {
-                      embeddedservice_bootstrap.utilAPI.launchChat();   
-                    }, 100)
-                });
-                embeddedservice_bootstrap.init(
-                    '00Dj0000000HTLp',
-                    'Client_Support',
-                    'https://1800accountant.my.site.com/ESWClientSupport1705485976105',
-                    {
-                        scrt2URL: 'https://1800accountant.my.salesforce-scrt.com'
-                    }
-                );
-               
-            } catch (err) {
-                console.error('Error loading Embedded Messaging: ', err);
+      function initEmbeddedMessaging() {
+        try {
+          embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+    
+          embeddedservice_bootstrap.init(
+            '00DVA00000BVbPx',
+            'Agentforce_Portal',
+            'https://1800accountant--uat.sandbox.my.site.com/ESWAgentforcePortal1739792315590',
+            {
+              scrt2URL: 'https://1800accountant--uat.sandbox.my.salesforce-scrt.com'
             }
-        };
+          );
+        } catch (err) {
+          console.error('Error loading Embedded Messaging: ', err);
+        }
+      };
     </script>
-    <script type='text/javascript' src='https://1800accountant.my.site.com/ESWClientSupport1705485976105/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+    <script type='text/javascript' src='https://1800accountant--uat.sandbox.my.site.com/ESWAgentforcePortal1739792315590/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
   </body>
 </html>
